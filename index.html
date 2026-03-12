@@ -144,7 +144,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,20,25,0.97);b
 
 /* SCIENCE — NCAT logo, no photo */
 .science{background:white;padding:90px 2rem}
-.science-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:6rem;align-items:center}
+.science-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:6rem;align-items:start}
 .science-logo-panel{display:flex;flex-direction:column;align-items:center;gap:2.5rem}
 .science-logo-panel img{max-width:260px;display:block}
 .science-badge-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%}
@@ -219,13 +219,60 @@ nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,20,25,0.97);b
 .form-submit{width:100%;background:var(--green);color:white;padding:1rem;border:none;border-radius:3px;font-family:'Sora',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;transition:background 0.2s}
 .form-submit:hover{background:var(--green-dark)}
 
-/* FOOTER */
+/* FAQ */
+.faq{background:white;padding:90px 2rem}
+.faq-inner{max-width:860px;margin:0 auto}
+.faq-header{text-align:center;margin-bottom:3.5rem}
+.faq-list{display:flex;flex-direction:column;gap:2px}
+.faq-item{border-top:1px solid #e5e7eb;overflow:hidden}
+.faq-item:last-child{border-bottom:1px solid #e5e7eb}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:1.5rem 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Sora',sans-serif;font-size:0.93rem;font-weight:700;color:var(--dark);gap:1.5rem;transition:color 0.2s}
+.faq-q:hover{color:var(--green)}
+.faq-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid #e5e7eb;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s;color:var(--neutral);font-size:14px;line-height:1}
+.faq-item.open .faq-icon{background:var(--green);border-color:var(--green);color:white;transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.25s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{padding-bottom:1.5rem;font-size:0.88rem;color:var(--neutral);line-height:1.85}
+.faq-a-inner strong{color:var(--dark);font-weight:600}
+.faq-audience{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);background:rgba(127,191,63,0.08);border:1px solid rgba(127,191,63,0.2);padding:0.2rem 0.6rem;border-radius:3px;margin-bottom:0.75rem}
+
+
 footer{background:var(--dark);padding:3rem 2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
 .footer-logo{margin:0 auto 1rem;display:block;width:fit-content}
 .footer-logo img{height:32px;display:block}
 footer p{font-size:0.78rem;color:rgba(255,255,255,0.35);line-height:1.8}
 footer a{color:rgba(255,255,255,0.5);text-decoration:none}
 footer a:hover{color:var(--green)}
+
+/* SEQUENCE MODULE */
+.sequence{background:var(--light);padding:72px 2rem}
+.sequence-inner{max-width:1400px;margin:0 auto}
+.sequence-header{text-align:center;margin-bottom:3.5rem}
+.sequence-header .section-title{color:var(--dark)}
+.sequence-header .section-sub{color:var(--neutral);max-width:560px;margin:0 auto}
+.seq-steps{display:grid;grid-template-columns:repeat(4,1fr);align-items:stretch;gap:0;position:relative}
+.seq-steps::before{content:'';position:absolute;top:2.6rem;left:calc(16.67% + 1px);right:calc(16.67% + 1px);height:1px;background:linear-gradient(to right,rgba(127,191,63,0.3),rgba(127,191,63,0.6),rgba(127,191,63,0.3));z-index:0}
+.seq-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 1.5rem;position:relative;z-index:1}
+.seq-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;margin-bottom:1.5rem;flex-shrink:0;border:2px solid rgba(0,0,0,0.1);background:white;color:rgba(0,0,0,0.2);transition:all 0.2s}
+.seq-step.active .seq-num{background:var(--green);color:white;border-color:var(--green);box-shadow:0 0 24px rgba(127,191,63,0.35)}
+.seq-step.optional .seq-num{background:rgba(127,191,63,0.08);color:var(--green);border-color:rgba(127,191,63,0.35)}
+.seq-label{font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.6rem}
+.seq-step.active .seq-label{color:var(--green)}
+.seq-step.optional .seq-label{color:rgba(127,191,63,0.8)}
+.seq-step:not(.active):not(.optional) .seq-label{color:rgba(0,0,0,0.3)}
+.seq-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:0.5rem;line-height:1.2}
+.seq-step:not(.active):not(.optional) .seq-title{color:rgba(0,0,0,0.45)}
+.seq-desc{font-size:0.78rem;color:var(--neutral);line-height:1.7}
+.seq-step.active .seq-desc{color:var(--dark)}
+.seq-step.optional .seq-desc{color:var(--neutral)}
+.seq-tag{display:inline-block;margin-top:0.8rem;font-size:0.65rem;font-weight:700;letter-spacing:0.5px;padding:0.25rem 0.7rem;border-radius:3px}
+.seq-step.active .seq-tag{background:rgba(127,191,63,0.12);border:1px solid rgba(127,191,63,0.3);color:var(--green)}
+.seq-step.optional .seq-tag{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.4)}
+
+/* CONTACT ROUTING */
+.form-field select{width:100%;padding:0.9rem 1rem;border:1px solid #e5e7eb;border-radius:3px;font-family:'Sora',sans-serif;font-size:0.85rem;color:var(--dark);outline:none;transition:border-color 0.2s,box-shadow 0.2s;background:white;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;cursor:pointer}
+.form-field select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(127,191,63,0.1)}
+.form-field select option[value=""]{color:#bbb}
 
 @media(max-width:900px){
   .nav-links,.nav-cta{display:none}
@@ -234,6 +281,8 @@ footer a:hover{color:var(--green)}
   .stats-inner{grid-template-columns:1fr 1fr}
   .intro-photo-badge{right:0;bottom:-1rem}
   .science-inner{gap:3rem}
+  .seq-steps{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .seq-steps::before{display:none}
 }
 </style>
 </head>
@@ -380,7 +429,7 @@ footer a:hover{color:var(--green)}
       </div>
       <div class="comp-card">
         <h3>vs. Traditional Fog Seals</h3>
-        <p>Standard fog seals extend life by 1–2 years at best. Delta Mist delivers 4+ years of measurable service life extension—more than double the benefit at a comparable application cost, producing the lowest Equivalent Annualized Cost in its preservation category.</p>
+        <p>Standard fog seals extend life by 1–2 years at best and do nothing to address the underlying oxidation driving pavement aging. Delta Mist delivers 4+ years of measurable service life extension by actively managing oxidation in the binder—more than double the benefit at a comparable application cost, producing the lowest Equivalent Annualized Cost in its preservation category.</p>
         <span class="comp-highlight">4+ years vs. 1–2 years. $0.38 vs. $0.50+ / sq yd / yr.</span>
       </div>
       <div class="comp-card">
@@ -473,9 +522,45 @@ footer a:hover{color:var(--green)}
   </div>
 </section>
 
+<!-- SEQUENCE MODULE -->
+<section class="sequence">
+  <div class="sequence-inner">
+    <div class="sequence-header">
+      <div class="section-eyebrow">The Smart Maintenance Sequence</div>
+      <h2 class="section-title">Treat First. Seal Second If Needed.</h2>
+      <p class="section-sub">As asphalt oxidizes, it dries out and loses flexibility — making it brittle and prone to cracking. Delta Mist is the conditioning step that addresses that dryness before it becomes a structural problem, going on before you decide whether a finish coat is required.</p>
+    </div>
+    <div class="seq-steps" style="grid-template-columns:repeat(3,1fr)">
+      <div class="seq-step">
+        <div class="seq-num">1</div>
+        <div class="seq-label">Foundation</div>
+        <div class="seq-title">Repairs &amp; Prep</div>
+        <div class="seq-desc">Crack filling, pothole repair, and surface cleaning. Standard prep your contractor already plans.</div>
+      </div>
+      <div class="seq-step active">
+        <div class="seq-num">2</div>
+        <div class="seq-label">Delta Mist Step</div>
+        <div class="seq-title">Conditioning Treatment</div>
+        <div class="seq-desc">Delta Mist is applied to dry, oxidized asphalt. Penetrates up to 3/8" to restore binder flexibility and manage ongoing oxidation. Returns to traffic in 60–90 min. No sand. No repainting required.</div>
+      </div>
+      <div class="seq-step optional">
+        <div class="seq-num">3</div>
+        <div class="seq-label">Optional Step</div>
+        <div class="seq-title">Finish Coat &amp; Re-Striping</div>
+        <div class="seq-desc">Add a sealcoat for appearance or surface protection if needed — applied over a healthier, treated base. Re-striping is only required if a finish coat is applied.</div>
+        <span class="seq-tag">Not required after Delta Mist alone</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SCIENCE — NCAT logo -->
 <section class="science" id="science">
   <div class="science-inner">
+    <div style="grid-column:1/-1;text-align:center;max-width:640px;margin:0 auto 3.5rem">
+      <div class="section-eyebrow">The Science</div>
+      <h2 class="section-title">Validated by NCAT at Auburn University</h2>
+    </div>
     <div class="science-logo-panel">
       <img src="https://napanow.org/wp-content/uploads/2024/01/NCATatAuburnlogoalt-Converted-USE-THIS-ONE-1024x538.png" alt="NCAT at Auburn University" style="max-width:280px;width:100%;display:block;margin:0 auto">
       <div class="science-badge-row">
@@ -498,8 +583,6 @@ footer a:hover{color:var(--green)}
       </div>
     </div>
     <div>
-      <div class="section-eyebrow">The Science</div>
-      <h2>Validated by NCAT at Auburn University</h2>
       <p>The National Center for Asphalt Technology at Auburn University is the gold standard for independent pavement product testing. Delta Mist has undergone the most rigorous testing regimen of any rejuvenating fog seal on the market.</p>
       <p>After six years and 20 million Equivalent Single Axle Loads (ESALs) on NCAT's accelerated test track, Delta Mist emerged as the top-performing product in its class—and is the only product invited to continue into a third round of testing targeting 30 million ESALs.</p>
       <p>NCAT field cores measured using the Glover-Rowe (G-R) Index—the industry standard for binder cracking susceptibility, where a lower increase means slower aging and less cracking risk. At 60 months, Delta Mist-treated sections showed only a <strong>123% G-R increase</strong>, compared to 347–563% for competing products. Delta Mist aged at less than one-third the rate of the nearest competitor over five years.</p>
@@ -548,7 +631,7 @@ footer a:hover{color:var(--green)}
         <h3>EAC Comparison by Treatment Type</h3>
         <ul class="econ-list">
           <li><span>Crack Seal ($0.60 / 3 yrs)</span><span class="val">$0.20 / sy / yr</span></li>
-          <li class="featured-row"><span>Delta Mist Fog Seal ($1.50 / 4 yrs)</span><span class="val">$0.38 / sy / yr</span></li>
+          <li class="featured-row"><span>Delta Mist ($1.50 / 4 yrs)</span><span class="val">$0.38 / sy / yr</span></li>
           <li><span>Chip Seal ($3.00 / 5 yrs)</span><span class="val">$0.60 / sy / yr</span></li>
           <li><span>Micro Surfacing ($5.50 / 8 yrs)</span><span class="val">$0.69 / sy / yr</span></li>
           <li><span>Minor Mill &amp; Fill ($11 / 10 yrs)</span><span class="val">$1.10 / sy / yr</span></li>
@@ -619,6 +702,70 @@ footer a:hover{color:var(--green)}
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-eyebrow">Common Questions</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">Do I need Delta Mist and a sealcoat, or just one of them?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <div class="faq-audience">Property Owners</div>
+          <p>Not always both. If the pavement is dry and oxidized but structurally sound, Delta Mist is often the right first step on its own—it conditions the asphalt underneath without requiring a finish coat on top. A sealcoat remains a good option if you want the aesthetic finish or added surface protection, and it goes on over a better foundation when Delta Mist is applied first. Your contractor can assess which approach fits your lot's condition.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Will applying Delta Mist mean we have to re-stripe right away?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <div class="faq-audience">Property Owners</div>
+          <p>Usually not. Delta Mist dries crystal clear and does not obscure existing traffic markings—so re-striping is typically not triggered by the Delta Mist application itself. If a sealcoat finish coat is applied afterward, striping would be tied to that step, not to Delta Mist.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How does Delta Mist fit into a municipal preservation program?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <div class="faq-audience">Municipal Agencies / DOT</div>
+          <p>Delta Mist is designed as a proactive preservation tool for pavements in the PCI 65–85 range—before significant structural deterioration sets in. Applied on a regular treatment cycle, it slows oxidation, delays crack initiation, and extends service life by 4+ years per application. This allows the same annual budget to cover more lane-miles and defer costly reconstruction, improving overall network health over time. The NCAT Phase 8 test track data provides long-duration, independently verified performance backing for specification purposes.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">My contractor hasn't used Delta Mist before. Can they still apply it?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <div class="faq-audience">Contractors / Applicators</div>
+          <p>Yes. Delta Mist is applied using standard spray equipment—the same setup used for conventional fog seals. No specialized machinery is required, and there's no aggregate cover or sand sweep needed afterward. If your contractor is interested in adding Delta Mist to their workflow, we can provide product training and technical support to get them up and running quickly.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What makes Delta Mist different from a standard fog seal or rejuvenator?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">
+          <div class="faq-audience">All Audiences</div>
+          <p>Most fog seals coat the surface—Delta Mist penetrates up to 3/8" into the asphalt matrix to interact directly with the oxidized binder underneath. It's formulated from a plant-based active ingredient developed at the Warner Babcock Institute for Green Chemistry, and it's the only spray-on rejuvenator independently tested through multiple cycles at NCAT's accelerated load facility at Auburn University. After 20 million equivalent axle loads, Delta Mist-treated sections aged at less than one-third the rate of competing products.</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner">
@@ -640,6 +787,15 @@ footer a:hover{color:var(--green)}
     </div>
     <div class="contact-form">
       <h3>Request a Quote or Consultation</h3>
+      <div class="form-field">
+        <select required>
+          <option value="" disabled selected>I am a… (select one)</option>
+          <option value="owner">Property Owner / Manager</option>
+          <option value="contractor">Contractor / Applicator</option>
+          <option value="agency">Municipal Agency / DOT</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
       <div class="form-field"><input type="text" placeholder="Your Name" required></div>
       <div class="form-field"><input type="email" placeholder="Your Email" required></div>
       <div class="form-field"><input type="text" placeholder="City / Municipality / Organization" required></div>
